@@ -1,0 +1,47 @@
+---
+title: "Reproducible visualizations"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+install.packages("rmarkdown")
+library(rmarkdown)
+
+install.packages("reshape2")
+library(reshape2)
+
+install.packages("haven")
+library(haven)
+
+install.packages("ggplot2")
+library(ggplot2)
+
+```
+
+
+
+```{r}
+full_trains <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-02-26/full_trains.csv")
+
+```
+
+```{r}
+#Visualization 1
+Visualization1 =
+  ggplot(full_trains, aes(x = journey_time_avg)) +
+  geom_histogram() +
+  scale_y_continuous(breaks = seq(0, 500, 100)) +
+  labs(x = "Journey Time (mins.)", y = "Number of instances")
+Visualization1
+title(main = "Histogram of Average Journey Time for trains on the SNCF Network") 
+
+
+```
+
+```{r}
+#Visualization2
+
+```
+
